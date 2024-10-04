@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('../partials/head'); %>
+</head>
+
+<body class="container">
+    <header>
+        <%- include('../partials/header'); %>
+    </header>
+    <main>
+        <section class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card" style="padding-top: 10px;">
+                            <!-- /.card-header -->
+                            <form action="/pages/addTicket" method="post" id="addTicket">
+                                <div class="row card-body">
+                                    <div class="col-md-6">
+                                        <!-- general form elements -->
+                                        <div class="card card-dark">
+                                            <div class="card-header">
+                                                <h3 class="card-title">Add Ticket</h3>
+                                            </div>
+                                            <div class="card-body">
+                                                <label>User</label>
+                                                <select class="form-control select2" name="username"
+                                                    placeholder="Select beds" style="width: 100%;">
+                                                    <option value="sameer335577">sameer335577</option>
+                                                    <option value="shakti335577">shakti335577</option>
+                                                    <option selected="selected" value="ashish335577">ashish335577
+                                                    </option>
+                                                </select>
+                                            </div>
+                                            <div class="card-body">
+                                                <label for="exampleInputName">Heading</label>
+                                                <input type="text" class="form-control" name="heading"
+                                                    placeholder="Enter Heading">
+                                            </div>
+                                            <div class="card-body">
+                                                <label for="exampleInputName">Description</label>
+                                                <input type="text" class="form-control" name="descriptions"
+                                                    placeholder="Enter Description">
+                                            </div>
+                                            <div class="card card-dark">
+                                                <div class="card-footer">
+                                                    <button type="submit" class="btn btn-success">Save</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <%- include('../partials/footer'); %>
+    </footer>
+</body>
+
+</html>

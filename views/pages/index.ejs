@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('../partials/head'); %>
+</head>
+
+<body class="container">
+    <header>
+        <%- include('../partials/header'); %>
+    </header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="/pages/addTicket"><button type="submit" class="btn btn-success">Create
+                Ticket</button></a>
+    </nav>
+    <main>
+        <div class="row">
+            <div class="col-sm-4">
+                <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/">To Do</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="col-sm-4">
+                <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/about">In progress</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="col-sm-4">
+                <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/">Completed</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+        <div class="row">
+
+
+            <div class="col-sm-4">
+                <% if(result?.to_do){%>
+                    <% for(let i=0; i < result.to_do.length; i++) { %>
+                        <div class="jumbotron">
+                            <h3>
+                                <%= result.to_do[i].heading %>
+                            </h3>
+                            <p>
+                                <%= result.to_do[i].descriptions %>
+                            </p>
+
+                            <div class="col-md-10">
+                                <div class="btn-group">
+
+                                    <form action="/pages/editTicket" method="post" id="editTicket">
+                                        <input type="hidden" name="id" value='<%= result.to_do[i].id %>'>
+                                        <button type="submit" class="btn btn-info btn-sm">
+                                            <span class="glyphicon glyphicon-edit">Edit</span>
+                                        </button>
+                                    </form>
+                                    <form action="/pages/deleteTicket" method="post" id="deleteTicket">
+                                        <input type="hidden" name="id" value='<%= result.to_do[i].id %>'>
+                                        <button type="submit" class="btn btn-danger btn-sm">
+                                            <span class="glyphicon glyphicon-edit">Delete</span>
+                                        </button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <% } %>
+                            <% }else{ %>
+                                No data
+                                <% } %>
+            </div>
+            <div class="col-sm-4">
+                <% if(result.in_progress){%>
+                    <% for(let i=0; i < result.in_progress.length; i++) { %>
+                        <div class="jumbotron">
+                            <h3>
+                                <%= result.in_progress[i].heading %>
+                            </h3>
+                            <p>
+                                <%= result.in_progress[i].descriptions %>
+                            </p>
+
+                            <div class="col-md-10">
+                                <div class="btn-group">
+                                    <form action="/pages/editTicket" method="post" id="editTicket">
+                                        <input type="hidden" name="id" value='<%= result.in_progress[i].id %>'>
+                                        <button type="submit" class="btn btn-info btn-sm">
+                                            <span class="glyphicon glyphicon-edit">Edit</span>
+                                        </button>
+                                    </form>
+                                    <form action="/pages/deleteTicket" method="post" id="deleteTicket">
+                                        <input type="hidden" name="id" value='<%= result.in_progress[i].id %>'>
+                                        <button type="submit" class="btn btn-danger btn-sm">
+                                            <span class="glyphicon glyphicon-edit">Delete</span>
+                                        </button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <% } %>
+                            <% }else{ %>
+                                No data
+                                <% } %>
+            </div>
+            <div class="col-sm-4">
+                <% if(result.completed){%>
+                    <% for(let i=0; i < result.completed.length; i++) { %>
+                        <div class="jumbotron">
+                            <h3>
+                                <%= result.completed[i].heading %>
+                            </h3>
+                            <p>
+                                <%= result.completed[i].descriptions %>
+                            </p>
+
+                            <div class="col-md-10">
+                                <div class="btn-group">
+                                    <form action="/pages/editTicket" method="post" id="editTicket">
+                                        <input type="hidden" name="id" value='<%= result.completed[i].id %>'>
+                                        <button type="submit" class="btn btn-info btn-sm">
+                                            <span class="glyphicon glyphicon-edit">Edit</span>
+                                        </button>
+                                    </form>
+                                    <form action="/pages/deleteTicket" method="post" id="deleteTicket">
+                                        <input type="hidden" name="id" value='<%= result.completed[i].id %>'>
+                                        <button type="submit" class="btn btn-danger btn-sm">
+                                            <span class="glyphicon glyphicon-edit">Delete</span>
+                                        </button>
+                                    </form>
+                                </div>
+
+                            </div>
+                        </div>
+
+
+                        <% } %>
+                            <% }else{ %>
+                                No data
+                                <% } %>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <%- include('../partials/footer'); %>
+    </footer>
+</body>
+
+</html>
