@@ -1,5 +1,5 @@
 const mysql = require('mysql2/promise');
-const cred = { host: 'localhost', user: 'root', password: '1234', database: 'kanban' }
+const cred = { host: 'localhost', user: 'root', password: '', database: 'kanban' }
 let getRecords = async () => {
     try {
 
